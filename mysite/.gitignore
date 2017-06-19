@@ -1,6 +1,8 @@
 mysite/.idea
 .idea
 
+db.sqlite3
+
 # Django stuff:
 *.log
 local_settings.py

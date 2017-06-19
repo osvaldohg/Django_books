@@ -1,4 +1,5 @@
 mysite/.idea
+.idea
 
 # Django stuff:
 *.log

@@ -6,16 +6,17 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse
 from .models import Book
-from django.template import loader
+from django.shortcuts import render
+
 
 def index (request):
     all_books=Book.objects.all()
-    template=loader.get_template('books/index.html')
+
     context={
             'all_books':all_books
     }
 
-    return HttpResponse(template.render(context,request))
+    return render(request,'books/index.html',context)
 
 
 def detail (request,book_id):

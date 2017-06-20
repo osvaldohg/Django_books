@@ -6,16 +6,16 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse
 from .models import Book
+from django.template import loader
 
 def index (request):
     all_books=Book.objects.all()
-    html=''
-    for book in all_books:
-        url='/books/'+str(book.id)+'/'
-        html+='<a href="'+ url+'">'+str(book.name)+'</a><br>'
+    template=loader.get_template('books/index.html')
+    context={
+            'all_books':all_books
+    }
 
-
-    return HttpResponse(html)
+    return HttpResponse(template.render(context,request))
 
 
 def detail (request,book_id):

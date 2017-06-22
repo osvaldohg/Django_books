@@ -7,6 +7,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
 from .models import Book
+from django.views.generic.edit import CreateView
 
 class IndexView(generic.ListView):
     template_name='books/index.html'
@@ -19,6 +20,10 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Book
     template_name='books/detail.html'
+
+class BookCreate(CreateView):
+    model = Book
+    fields = ['name','author','price','type','book_image']
 
 
 

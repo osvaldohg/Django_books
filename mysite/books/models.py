@@ -6,13 +6,16 @@ from django.db import models
 # Create your models here.
 
 from django.http import HttpResponse
-
+from django.core.urlresolvers import reverse
 
 def index(request):
     return HttpResponse("<h>this is the books homepage</h>")
 
 
 class Book (models.Model):
+    def get_absolute_url(self):
+        return reverse('books:detail', kwargs={'pk':self.pk})
+
     def __str__(self):
         return self.name + '-' + self.author
 
@@ -20,6 +23,8 @@ class Book (models.Model):
     author= models.CharField(max_length=100)
     price = models.CharField(max_length=100)
     type = models.CharField(max_length=100)
+    book_image=models.CharField(max_length=1000)
+
 
 
 

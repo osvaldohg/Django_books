@@ -1,2 +1,8 @@
-<h1>{{book.name}}</h1>
-<h4>{{book.author}}</h4>
+{% extends 'books/base.html '%}
+
+{% block body %}
+
+<h1 style="color:white;" >{{book.name}}</h1>
+<h4 style="color:gray;">{{book.author}}</h4>
+
+{% endblock %}

@@ -26,4 +26,6 @@ class BookCreate(CreateView):
     fields = ['name','author','price','type','book_image']
 
 
-
+class ContactView(generic.ListView ):
+    model = Book
+    template_name='books/contact.html'
